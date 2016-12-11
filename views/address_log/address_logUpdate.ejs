@@ -1,0 +1,16 @@
+<%- include("../includes/header.ejs", {title: "Update " + address_log.address_id}); %>
+
+<h1>Update <%= address_log.address_id%></h1>
+<form action="/address_log/update" method="get">
+    <input type="hidden" id="address_id" name="address_id" value="<%= address_log.address_id %>">
+    Street: <input id="street" name="street" type="text" value="<%= address_log.street%>"/>
+    City: <input id="city" name="city" type="text" value="<%= address_log.city%>"/> <br /><br />
+    State: <input id="state" name="state" type="text" value="<%= address_log.state%>"/> <br /><br />
+    Zip Code: <input id="zip" name="zip" type="text" value="<%= address_log.zip%>"/> <br /><br />
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+<%- include("../includes/footer.ejs"); %>

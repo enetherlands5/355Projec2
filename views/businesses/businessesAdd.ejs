@@ -1,0 +1,23 @@
+<%- include("../includes/header.ejs", {title:"Add New Business"}); %>
+
+<h1>Add New Business</h1>
+<a href="/">Home</a> <br />
+<br />
+<form action="/businesses/insert" method="get">
+    Business Name: <input id="name" name="name" type="text" /> <br /><br />
+    Category: <input id="category" name="category" type="text" />
+    <br />
+    <br />
+    Address
+    <select id="address_id" name="address_id">
+        <% for(var i=0; address_log.length > i; i++ ) { %>
+        <option value="<%= address_log[i].address_id %>">
+            <%= address_log[i].street + ', ' + address_log[i].city + ', ' + address_log[i].state  + ', ' + address_log[i].zip %></option>
+        <% } %>
+    </select>
+    <br /> <br />
+    <input type="submit" />
+
+
+</form>
+<%- include("../includes/footer.ejs"); %>
