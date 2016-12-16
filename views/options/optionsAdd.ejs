@@ -1,0 +1,18 @@
+<%- include("../includes/header.ejs", {title:"Add New Option"}); %>
+
+<h1>Add New Option</h1>
+<a href="/">Home</a> <br />
+<br />
+<form action="/options/insert" method="get">
+    Name: <input id="name" name="name" type="text" /> <br /> <br />
+    Location: <input id="location" name="location" type="text" /> <br /> <br />
+    Number of Days: <input id="num_days" name="num_days" type="text" /> <br /> <br />
+    Cost: <input id="cost" name="cost" type="text" /> <br /> <br />
+    <br />
+    <br />
+    <br /> <br />
+    <input type="submit" />
+
+
+</form>
+<%- include("../includes/footer.ejs"); %>

@@ -9,8 +9,8 @@
     <tr><th>Address</th><th>Action</th></tr>
     <% for(var i=0; result.length > i; i++ ) { %>
     <tr>
-        <td><a href="/address_log/?address_id=<%= result[i].address_id %>">
-        <%= result[i].street %>
+        <td align="center"><a href="/address_log/?address_id=<%= result[i].address_id %>">
+        <%= result[i].street %>,
         <%= result[i].city %>,
         <%= result[i].state %>
         <%= result[i].zip %></a></td>

@@ -7,12 +7,12 @@
 <br />
 
 <table border="1">
-    <tr><th>Name</th><th>Category</th><th>Business</th><th>Action</th></tr>
+    <tr><th>Name</th><th>Category</th><th>Address</th><th>Action</th></tr>
     <% for(var i=0; result.length > i; i++ ) { %>
     <tr>
-        <td><a href="/businesses/?business_id=<%= result[i].business_id %>"></a><%= result[i].name %></td>
-        <td><%= result[i].category %></td>
-        <td><%= result[i].city %>, <%= result[i].state %> <%= result[i].zip %></td>
+        <td align="center"><a href="/businesses/?business_id=<%= result[i].business_id %>"></a><%= result[i].name %></td>
+        <td align="center"><%= result[i].category %></td>
+        <td align="center"><%= result[i].street %>, <%= result[i].city %>, <%= result[i].state %> <%= result[i].zip %></td>
         <td>
             <button onclick="event.preventDefault();window.location.href='/businesses/edit/?business_id=<%= result[i].business_id %>'">Edit</button>
             <form action="/businesses/delete/" style="display:inline;">

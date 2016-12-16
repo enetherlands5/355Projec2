@@ -24,7 +24,7 @@ router.get('/add', function(req, res){
             res.send(err);
         }
         else {
-            res.render('address_log/address_logAdd', {'address_log': result});
+            res.render('address_log/address_logAdd', {'address_log': result[0]});
         }
     });
 });
@@ -64,7 +64,7 @@ router.get('/edit', function(req, res){
     }
     else {
         address_log_dal.edit(req.query.address_id, function(err, result){
-            res.render('address_log/address_logUpdate', {address_log: result[1]});
+            res.render('address_log/address_logUpdate', {address_log: result[0][0]});
         });
     }
 

@@ -1,0 +1,32 @@
+<%- include("../includes/header.ejs", {title:"Tourists - View All"}); %>
+
+<h1>Tourists</h1>
+<a href="/">Home</a> <br /><br />
+<a href="/tourists/add">Add New tourist</a>
+<br />
+<br />
+<table border="1"><col align="center">
+    <tr><th>Name</th><th>Email</th><th>Phone Number</th><th>Address</th><th>Credit Card Number</th><th>Expiration Date</th><th>CVC Code</th><th>SSN</th><th>Option</th><th>Action</th>
+    </tr>
+    <% for(var i=0; result.length > i; i++ ) { %>
+    <tr>
+        <td align="center"><a href="/tourists/?tourist_id=<%= result[i].tourist_id %>"><%= result[i].fname %> <%= result[i].lname %></a></td>
+        <td align="center"><%= result[i].email %></td>
+        <td align="center"><%= result[i].phone %></td>
+        <td align="center"><%= result[i].street %>, <%= result[i].city %>, <%= result[i].state %> <%= result[i].zip %></td>
+        <td align="center"><%= result[i].card_number %></td>
+        <td align="center"><%= result[i].expiration_date %></td>
+        <td align="center"><%= result[i].cvc_code %></td>
+        <td align="center"><%= result[i].ssn %></td>
+        <td align="center"><%= result[i].name %></td>
+        <td>
+            <button onclick="event.preventDefault();window.location.href='/tourists/edit2/?tourist_id=<%= result[i].tourist_id %>'">Edit</button>
+            <form action="/tourists/delete/" style="display:inline;">
+                <input type="hidden" name="tourist_id" id="tourist_id" value="<%= result[i].tourist_id %>" />
+                <input type="submit" value="Delete"/>
+            </form>
+        </td>
+    </tr>
+    <% } %>
+</table>
+<%- include("../includes/footer.ejs"); %>

@@ -51,8 +51,8 @@ exports.delete = function(business_id, callback) {
 };
 
 exports.update = function(params, callback) {
-    var query = 'UPDATE business SET name = ?, category = ?, address_id = ? WHERE business_id = ?';
-    var queryData = [params.name, params.category, params.address_id];
+    var query = 'UPDATE businesses SET name = ?, category = ? WHERE business_id = ?';
+    var queryData = [params.name, params.category];
 
     connection.query(query, queryData, function(err, result) {
         callback(err, result);

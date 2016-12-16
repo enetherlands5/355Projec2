@@ -10,7 +10,7 @@ router.get('/all', function(req, res) {
             res.send(err);
         }
         else {
-            res.render('tourist/touristViewAll', { 'result':result });
+            res.render('tourists/touristsViewAll', { 'result':result });
         }
     });
 
@@ -27,7 +27,7 @@ router.get('/', function(req, res){
                 res.send(err);
             }
             else {
-                res.render('tourist/touristViewById', {'result': result});
+                res.render('tourists/touristsViewById', {'result': result});
             }
         });
     }
@@ -47,7 +47,7 @@ router.get('/insert', function(req, res){
             }
             else {
                 //poor practice, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/tourist/all');
+                res.redirect(302, '/tourists/all');
             }
         });
     }
@@ -65,7 +65,7 @@ router.get('/delete', function(req, res){
             }
             else {
                 //poor practice, but we will handle it differently once we start using Ajax
-                res.redirect(302, '/tourist/all');
+                res.redirect(302, '/tourists/all');
             }
         });
     }

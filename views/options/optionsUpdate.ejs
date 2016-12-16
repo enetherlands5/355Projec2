@@ -1,0 +1,16 @@
+<%- include("../includes/header.ejs", {title: "Update " + options.option_id}); %>
+
+<h1>Update <%= options.option_id%></h1>
+<form action="/options/update" method="get">
+    <input type="hidden" id="option_id" name="option_id" value="<%= options.option_id %>">
+    Name: <input id="name" name="name" type="text" value="<%= options.name%>"/>
+    State: <input id="location" name="location" type="text" value="<%= options.state%>"/> <br /><br />
+    Number of Days: <input id="num_days" name="num_days" type="text" value="<%= options.num_days%>"/> <br /><br />
+    Cost: <input id="cost" name="cost" type="cost" value="<%= options.cost%>"/> <br /><br />
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+<%- include("../includes/footer.ejs"); %>

@@ -1,0 +1,40 @@
+<%- include("../includes/header.ejs", {title: "Update " + directors.fname + directors.lname}); %>
+
+<h1>Update <%= directors.fname%> <%= directors.lname%></h1>
+<a href="/">Home</a> <br />
+<form action="/directors/update" method="get">
+    <input type="hidden" id="director_id" name="director_id" type="text" value="<%= directors.director_id %>">
+    First Name: <input id="fname" name="fname" type="text" value="<%= directors.fname %>"/> <br /><br />
+    First Name: <input id="lname" name="lname" type="text" value="<%= directors.lname %>"/> <br /><br />
+    Email: <input id="email" name="email" type="text" value="<%= directors.email %>"/> <br /><br />
+    Phone Number: <input id="phone" name="phone" type="text" value="<%= directors.phone %>"/> <br /><br />
+    SSN: <input id="ssn" name="ssn" type="text" value="<%= directors.ssn %>"/> <br /><br />
+    <br />
+    <br />
+    Address:
+    <select id="address_id" name="address_id" multiple="multiple">
+        <% for(var i=0; address_log.length > i; i++ ) {
+            var selected = "";
+            if(address_log[i].director_id != null) {
+                selected = "selected";
+            }
+        %>
+        <option value="<%= address_log[i].address_id %>" <%= selected %> ><%= address_log[i].street + ', ' + address_log[i].zipcode %></option>
+        <% } %>
+    </select>
+
+    <!-- Initialize the multiselect plugin: -->
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#address_id').multiselect();
+        });
+    </script>
+
+    <br />
+
+    <input type="submit" />
+
+</form>
+
+<%- include("../includes/footer.ejs"); %>
+

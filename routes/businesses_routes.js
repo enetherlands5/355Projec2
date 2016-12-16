@@ -6,18 +6,18 @@ var address_log_dal = require('../model/address_log_dal');
 
 // View All businesss
 router.get('/all', function(req, res) {
-    businesses_dal.getAll(function(err, result){
-        if(err) {
+    businesses_dal.getAll(function(err, result) {
+        if (err) {
             res.send(err);
         }
         else {
-            res.render('businesses/businessesViewAll', { 'result':result });
+            res.render('businesses/businessesViewAll', {'result': result});
         }
     });
 
 });
 
-// View the business for the given id
+// View the director for the given id
 router.get('/', function(req, res){
     if(req.query.business_id == null) {
         res.send('business_id is null');
@@ -33,16 +33,15 @@ router.get('/', function(req, res){
         });
     }
 });
-
 // Return the add a new business form
 router.get('/add', function(req, res){
     // passing all the query parameters (req.query) to the insert function instead of each individually
-    address_log_dal.getAll(function(err,result) {
+   address_log_dal.getAll(function (err, result) {
         if (err) {
             res.send(err);
         }
         else {
-            res.render('businesses/businessesAdd', {'address_log': result});
+            res.render('businesses/businessesAdd', {'businesses': result, 'address_log': result});
         }
     });
 });
@@ -52,9 +51,6 @@ router.get('/insert', function(req, res){
     // simple validation
     if(req.query.name == null) {
         res.send('Business Name must be provided.');
-    }
-    else if(req.query.category == null) {
-        res.send('Category must be provided.');
     }
     else if(req.query.address_id == null) {
         res.send('An Address must be selected');
@@ -92,8 +88,8 @@ router.get('/edit2', function(req, res){
     }
     else {
         businesses_dal.getById(req.query.business_id, function(err, business){
-            address_log_dal.getAll(function(err, address) {
-                res.render('businesses/businessesUpdate', {businesses: business[0], address_log: address});
+            address_log_dal.getById(req.query.address_id, function(err, address) {
+                res.render('businesses/businessesUpdate', {businesses: business[0], address_log: address[1]});
             });
         });
     }
